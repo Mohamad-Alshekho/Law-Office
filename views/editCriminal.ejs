@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Validation Form</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css">
+</head>
+
+
+  <!-- Main Sidebar Container -->
+  
+  <%- include('./partials/sidebar.ejs') %>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>LOW OFFICE</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="/getCriminals">Criminals</a></li>
+              <li class="breadcrumb-item active"><%= typeof criminal !== 'undefined' ? 'Editing Criminal' : 'Adding Criminal' %></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Criminal </h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+
+              
+              <form action="<%= typeof criminal !== 'undefined' ? '/editCriminal/'+criminal.ssn : '/addCriminal' %>" method="POST">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="id">Ssn</label>
+                    <input disabled type="text" name="ssn" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.ssn : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="date">First Name</label>
+                    <input type="text" name="firstName" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.firstName : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Last Name</label>
+                    <input type="text" name="lastName" class="form-control"  value="<%= typeof criminal !== 'undefined' ? criminal.lastName : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Birth Date</label>
+                    <input type="date" name="birthDate" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.birthDate : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Age</label>
+                    <input disabled type="text" name="age" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.age : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Gender</label>
+                    <input  type="text" name="gender" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.gender : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nationality</label>
+                    <input type="text" name="nationality" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.nationality : '' %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="sentenceID">sentenceID</label>
+                    <input type="text" name="sentenceID" class="form-control" value="<%= typeof criminal !== 'undefined' ? criminal.sentenceID : '' %>">
+                  </div>
+                 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <%- include('./partials/footer.ejs') %>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jquery-validation -->
+<script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="/plugins/jquery-validation/additional-methods.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- Page specific script -->
+
+</body>
+</html>
