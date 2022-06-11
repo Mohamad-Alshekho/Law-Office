@@ -43,7 +43,7 @@ const officeRoutes = require('./routes/office');
 //database configuration
 var config={
     user: 'mo',
-    password: 'database',
+    password: 'database-password',
     database: 'Project_step3',
     server: 'DESKTOP-IBHKMGQ',
     driver: 'msnodesqlv8',
